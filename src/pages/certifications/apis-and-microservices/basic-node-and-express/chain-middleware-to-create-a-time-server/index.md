@@ -10,11 +10,11 @@ Similar to the last challenge, but now we are chaining 2 functions together. It 
 Instead of responding with the time we can also add a string to the request and pass it to the next function. This is trivial, but it makes for a decent example. The code looks like:
 
 ```javascript
-app.get("/now", middleware(req, res, next) {
+app.get("/now", function(req, res, next) { // this is middleware function
   req.string = "example";
   next();
 },
-  function (req, res) {
+  function (req, res) { // this is the handler function
       res.send(req.string); // This will display "example" to the user
   });
 ```
